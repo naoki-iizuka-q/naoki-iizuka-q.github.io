@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <div>
+    <div class="upper-header">
       <img class="logo-header" src="./images/logo-knowledge-web.svg" alt="QUICK QuickKnowledge特設サイト"><small>注目の旬な話題をピックアップ</small>
       <form action="/search" method="GET" class="search-form">
         <label for="search-input" class="search-label">
@@ -19,8 +19,14 @@
           <span class="search-icon" aria-hidden="true"><button type="submit"><img src="./images/v-icon.svg"></button></span>
         </label>
       </form>
+      <small class="back-to-old-layout"><a href="/old/">旧レイアウトに戻す</a></small>
+      <ul class="inquiry">
+        <a href="/contact/">
+          <li>お問い合わせ</li>
+        </a>
+      </ul>
     </div>
-    <nav>
+    <nav class="lower-header">
       <ul>
         <li><a href="#">国内株</a></li>
         <li><a href="#">外国株</a></li>
