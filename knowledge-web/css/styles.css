@@ -1,8 +1,9 @@
 :root {
   --quick-b: #003B75;
-  --quick-b_3nd: #7288A4;
+  --quick-b_3rd: #7288A4;
   --white: #FFFFFF;
   --bg01: #F0F0F0;
+  --bg02: #EFEFEF;
   --sub-01: #535659;
   --sab-02: #777D83;
 }
@@ -11,7 +12,23 @@ body {
   font-family: Noto Sans JP;
 }
 
-header div {
+h1,
+a {
+  color: var(--quick-b);
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 26px;
+}
+
+h1 .large-icon {
+  font-size: 36px;
+}
+
+.upper-header {
   color: var(--white);
   background: var(--quick-b);
   display: flex;
@@ -21,8 +38,8 @@ header div {
   padding-top: 4px;
 }
 
-nav {
-  background-color: var(--quick-b_3nd);
+.middle-header {
+  background-color: var(--quick-b_3rd);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,22 +47,58 @@ nav {
   white-space: nowrap;
 }
 
-nav a {
+.middle-header a {
   color: var(--white);
   text-decoration: none;
 }
 
-nav ul,
-.upper-header ul {
+.upper-header ul,
+.middle-header ul,
+.lower-header ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-nav li {
+.middle-header li {
   padding: 0 16px;
   display: flex;
+}
+
+.lower-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg02);
+}
+
+.lower-header--upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1080px;
+}
+
+.lower-header--upper ul {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.lower-header--lower {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+  padding-bottom: 20px;
+  gap: 12px;
+}
+
+.lower-header--lower ul {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 small {
