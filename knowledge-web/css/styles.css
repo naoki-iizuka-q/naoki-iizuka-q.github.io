@@ -17,6 +17,14 @@ a {
   color: var(--quick-b);
 }
 
+a {
+  display: inline-block;
+}
+
+a img {
+  display: block;
+}
+
 h1 {
   display: flex;
   align-items: center;
