@@ -98,8 +98,7 @@ form {
 }
 
 .inquiry li:hover {
-  color: var(--white);
-  background: #46A6FF;
+  background: var(--white);
 }
 
 .search-form {
