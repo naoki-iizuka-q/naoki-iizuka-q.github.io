@@ -36,6 +36,19 @@ h1 .large-icon {
   font-size: 36px;
 }
 
+/****************************************/
+/* header */
+.upper-header ul,
+.middle-header ul,
+.lower-header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/********************/
+/* upper-header */
 .upper-header {
   color: var(--white);
   background: var(--quick-b);
@@ -46,6 +59,8 @@ h1 .large-icon {
   padding-top: 4px;
 }
 
+/********************/
+/* middle-header */
 .middle-header {
   background-color: var(--quick-b_3rd);
   display: flex;
@@ -60,20 +75,13 @@ h1 .large-icon {
   text-decoration: none;
 }
 
-.upper-header ul,
-.middle-header ul,
-.lower-header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
 .middle-header li {
   padding: 0 16px;
   display: flex;
 }
 
+/********************/
+/* lower-header */
 .lower-header {
   display: flex;
   flex-direction: column;
@@ -81,6 +89,8 @@ h1 .large-icon {
   background: var(--bg02);
 }
 
+/**********/
+/* lower-header--upper */
 .lower-header--upper {
   display: flex;
   justify-content: space-between;
@@ -94,6 +104,8 @@ h1 .large-icon {
   gap: 20px;
 }
 
+/**********/
+/* lower-header--lower */
 .lower-header--lower {
   display: flex;
   flex-direction: column;
@@ -109,29 +121,12 @@ h1 .large-icon {
   gap: 20px;
 }
 
-small {
+.lower-header--lower li {
   font-size: 14px;
-  padding: 0 8px
 }
 
-small a {
-  text-decoration: none;
-  color: var(--white);
-}
-
-small a:hover {
-  text-decoration: underline;
-}
-
-.back-to-old-layout {
-  margin: 0 32px;
-}
-
-.logo-header {
-  width: auto;
-  height: 25px;
-}
-
+/****************************************/
+/* form & inquiry */
 form,
 .inquiry li {
   color: var(--sub-01);
@@ -204,4 +199,30 @@ button {
 
 button {
   padding-top: 4px;
+}
+
+/****************************************/
+/* others */
+
+small {
+  font-size: 14px;
+  padding: 0 8px
+}
+
+small a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+small a:hover {
+  text-decoration: underline;
+}
+
+.back-to-old-layout {
+  margin: 0 32px;
+}
+
+.logo-header {
+  width: auto;
+  height: 25px;
 }
