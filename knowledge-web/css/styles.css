@@ -77,7 +77,6 @@ h1 .large-icon {
 
 .middle-header li {
   padding: 0 16px;
-  display: flex;
   font-size: 16px;
 }
 
@@ -100,7 +99,6 @@ h1 .large-icon {
 }
 
 .lower-header--upper ul {
-  display: flex;
   align-items: flex-start;
   gap: 20px;
 }
