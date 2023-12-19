@@ -36,6 +36,10 @@ h1 .large-icon {
   font-size: 36px;
 }
 
+.small-icon {
+  color: var(--sab-02);
+}
+
 /****************************************/
 /* header */
 .upper-header ul,
