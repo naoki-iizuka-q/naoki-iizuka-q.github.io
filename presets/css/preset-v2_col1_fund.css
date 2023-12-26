@@ -1,0 +1,28 @@
+﻿/* 銘柄名:基準価額:前日比=100%:50%:50% */
+
+.element {
+    width: 50%;
+}
+
+
+/* 銘柄名のエリアを超えたら改行 */
+
+.name-data p {
+    white-space: normal;
+}
+
+.data:last-child {
+    height: 50%;
+    justify-content: flex-start;
+}
+
+.footer-data-text {
+    font-size: 1.75vh;
+    line-height: 1.3;
+    padding-left: calc(3.75% / 2);
+}
+
+.name-data-text {
+    font-size: 5vh;
+    padding-left: 3.75%;
+}

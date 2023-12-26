@@ -1,0 +1,20 @@
+﻿.data img {
+    border-radius: 4px;
+}
+
+.element-data-text {
+    font-size: 7.5vh;
+}
+
+.name-data-text {
+    font-size: 5.25vh;
+}
+
+.direction:nth-child(1) {
+    height: 20%;
+}
+
+.title-text {
+    font-size: 4vh;
+    visibility: visible;
+}

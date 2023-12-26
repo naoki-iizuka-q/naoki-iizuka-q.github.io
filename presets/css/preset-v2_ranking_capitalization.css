@@ -1,0 +1,15 @@
+.direction>.data:nth-child(n+2)>.element:nth-child(2),
+.direction>.data:nth-child(n+2)>.element:nth-child(4),
+.direction>.data:nth-child(n+2)>.element:nth-child(6)
+{
+    display: none;
+}
+
+.direction>.data:nth-child(n+2)>.element:nth-child(1) {
+    width: 13%;
+}
+
+.direction>.data:nth-child(n+3)>.element:nth-child(5) p {
+    font-size: 6.5vh;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,18 @@
+.direction>.data:nth-child(n+2)>.element:nth-child(2),
+.direction>.data:nth-child(n+2)>.element:nth-child(4)
+{
+    display: none;
+}
+
+.direction>.data:nth-child(n+2)>.element:nth-child(1) {
+    width: 40%;
+}
+
+.direction:nth-child(1)>.data:nth-child(1) {
+    width: calc(200% - 124px);
+    margin-left: 100%;
+}
+
+.direction:nth-child(2)>.data:nth-child(1) {
+    visibility: hidden;
+}
