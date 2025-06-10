@@ -31,6 +31,11 @@
       .text-shadow {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
       }
+
+      /* Fix for anchor links being hidden by fixed header */
+      html {
+        scroll-padding-top: 120px; /* Adjust this value to your header's actual height */
+      }
     </style>
   </head>
   <body class="bg-gray-50">
@@ -66,20 +71,20 @@
         <div class="container mx-auto px-6">
           <div class="text-center mb-12">
             <h3 class="text-3xl font-light text-center text-gray-800 tracking-wider">Gallery</h3>
-            <p class="mt-4 text-gray-600">Memories of our family and our dog, living in Saitama.</p>
+            <p class="mt-4 text-gray-600">Memories of our family and our dog, Vivi, living in Saitama. We also post videos on our Instagram.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div class="w-full aspect-square overflow-hidden">
-              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x700/adb5bd/f8f9fa" alt="Gallery image 1" />
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/adb5bd/f8f9fa?text=Photo+1" alt="Gallery image 1" />
             </div>
             <div class="w-full aspect-square overflow-hidden">
-              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/ced4da/495057" alt="Gallery image 2" />
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/ced4da/495057?text=Photo+2" alt="Gallery image 2" />
             </div>
             <div class="w-full aspect-square overflow-hidden">
-              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/dee2e6/495057" alt="Gallery image 3" />
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/dee2e6/495057?text=Photo+3" alt="Gallery image 3" />
             </div>
             <div class="w-full aspect-square overflow-hidden">
-              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/e9ecef/343a40" alt="Gallery image 4" />
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/e9ecef/343a40?text=Photo+4" alt="Gallery image 4" />
             </div>
           </div>
 
@@ -94,7 +99,7 @@
           <h3 class="text-3xl font-light text-center mb-12 text-gray-800 tracking-wider">Recent Posts</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="bg-white overflow-hidden group">
-              <img src="https://placehold.co/400x250/fecaca/991b1b" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+              <img src="https://placehold.co/400x250/fecaca/991b1b?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
                 <span class="text-sm text-gray-500">June 8, 2025</span>
                 <h4 class="font-medium text-lg my-1">First time at the dog park!</h4>
@@ -102,7 +107,7 @@
               </div>
             </div>
             <div class="bg-white overflow-hidden group">
-              <img src="https://placehold.co/400x250/fed7aa/9a3412" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+              <img src="https://placehold.co/400x250/fed7aa/9a3412?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
                 <span class="text-sm text-gray-500">May 20, 2025</span>
                 <h4 class="font-medium text-lg my-1">Vivi's homemade birthday cake</h4>
@@ -110,7 +115,7 @@
               </div>
             </div>
             <div class="bg-white overflow-hidden group">
-              <img src="https://placehold.co/400x250/bfdbfe/1e40af" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+              <img src="https://placehold.co/400x250/bfdbfe/1e40af?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
                 <span class="text-sm text-gray-500">April 15, 2025</span>
                 <h4 class="font-medium text-lg my-1">A walk in the park for cherry blossoms</h4>
