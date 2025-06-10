@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Days | Life with Vivi</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ===== NEW: Tailwind CSS Configuration ===== -->
+    <!-- This script enables class-based dark mode -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            // You can extend your theme here if needed
+          },
+        },
+      };
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,43 +30,60 @@
       /* Apply Google Fonts */
       body {
         font-family: "Poppins", "Noto Sans JP", sans-serif;
-        background-color: #f8f9fa; /* Light gray */
-        color: #343a40; /* Dark gray */
       }
-
+      /* Fix for anchor links being hidden by fixed header */
+      html {
+        scroll-padding-top: 120px;
+        scroll-behavior: smooth;
+      }
       /* Add a subtle shadow to text for readability */
       .text-shadow {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
-
-      /* Fix for anchor links being hidden by fixed header */
-      html {
-        scroll-padding-top: 120px; /* Adjust this value to your header's actual height */
-        scroll-behavior: smooth; /* Enable smooth scrolling for the whole page */
-      }
     </style>
+    <script>
+      // Set theme on page load to prevent Flash of Unstyled Content (FOUC)
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <body class="bg-gray-50">
-    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200">
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <!-- ===== UPDATED: Logo is now a link to the top ===== -->
         <a href="#" id="logo-link">
-          <h1 class="text-xl font-medium tracking-wider text-gray-800">OUR DAYS</h1>
+          <h1 class="text-xl font-medium tracking-wider text-gray-800 dark:text-gray-100">OUR DAYS</h1>
         </a>
 
-        <nav class="hidden md:flex items-center space-x-6">
-          <a href="#gallery" class="text-gray-500 hover:text-gray-900 transition-colors">Gallery</a>
-          <a href="#blog" class="text-gray-500 hover:text-gray-900 transition-colors">Blog</a>
-        </nav>
+        <div class="flex items-center">
+          <nav class="hidden md:flex items-center space-x-6 mr-6">
+            <a href="#gallery" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Gallery</a>
+            <a href="#blog" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Blog</a>
+          </nav>
 
-        <button id="mobile-menu-button" class="md:hidden text-gray-500 hover:text-gray-900 focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
+          <!-- Theme Toggle Button -->
+          <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+
+          <button id="mobile-menu-button" class="md:hidden text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none ml-2">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
       </div>
 
-      <nav id="mobile-menu" class="hidden md:hidden bg-white py-2 border-t border-gray-200">
-        <a href="#gallery" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 transition-colors">Gallery</a>
-        <a href="#blog" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 transition-colors">Blog</a>
+      <nav id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 py-2 border-t border-gray-200 dark:border-gray-700">
+        <a href="#gallery" class="block px-6 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Gallery</a>
+        <a href="#blog" class="block px-6 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Blog</a>
       </nav>
     </header>
 
@@ -74,8 +104,8 @@
       <section id="gallery" class="py-16 md:py-24">
         <div class="container mx-auto px-6">
           <div class="text-center mb-12">
-            <h3 class="text-3xl font-light text-center text-gray-800 tracking-wider">Gallery</h3>
-            <p class="mt-4 text-gray-600">Memories of our family and our dog, Vivi, living in Saitama. We also post videos on our Instagram.</p>
+            <h3 class="text-3xl font-light text-center text-gray-800 dark:text-gray-100 tracking-wider">Gallery</h3>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">Memories of our family and our dog, Vivi, living in Saitama. We also post videos on our Instagram.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div class="w-full aspect-square overflow-hidden rounded-md">
@@ -92,37 +122,37 @@
             </div>
           </div>
           <div class="text-center mt-12">
-            <a href="#" class="inline-block bg-white text-gray-700 border border-gray-300 shadow-sm px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors"> View More </a>
+            <a href="#" class="inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 shadow-sm px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"> View More </a>
           </div>
         </div>
       </section>
 
-      <section id="blog" class="py-16 md:py-24 bg-white">
+      <section id="blog" class="py-16 md:py-24 bg-white dark:bg-black">
         <div class="container mx-auto px-6">
-          <h3 class="text-3xl font-light text-center mb-12 text-gray-800 tracking-wider">Recent Posts</h3>
+          <h3 class="text-3xl font-light text-center mb-12 text-gray-800 dark:text-gray-100 tracking-wider">Recent Posts</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white overflow-hidden group rounded-md border">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden group rounded-md border border-gray-200 dark:border-gray-700">
               <img src="https://placehold.co/400x250/fecaca/991b1b?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
-                <span class="text-sm text-gray-500">2025年6月8日</span>
-                <h4 class="font-medium text-lg my-1">First time at the dog park!</h4>
-                <a href="#" class="text-gray-500 hover:text-gray-800 text-sm font-medium">READ MORE &rarr;</a>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2025年6月8日</span>
+                <h4 class="font-medium text-lg my-1 text-gray-800 dark:text-gray-100">First time at the dog park!</h4>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white text-sm font-medium">READ MORE &rarr;</a>
               </div>
             </div>
-            <div class="bg-white overflow-hidden group rounded-md border">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden group rounded-md border border-gray-200 dark:border-gray-700">
               <img src="https://placehold.co/400x250/fed7aa/9a3412?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
-                <span class="text-sm text-gray-500">2025年5月20日</span>
-                <h4 class="font-medium text-lg my-1">Vivi's homemade birthday cake</h4>
-                <a href="#" class="text-gray-500 hover:text-gray-800 text-sm font-medium">READ MORE &rarr;</a>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2025年5月20日</span>
+                <h4 class="font-medium text-lg my-1 text-gray-800 dark:text-gray-100">Vivi's homemade birthday cake</h4>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white text-sm font-medium">READ MORE &rarr;</a>
               </div>
             </div>
-            <div class="bg-white overflow-hidden group rounded-md border">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden group rounded-md border border-gray-200 dark:border-gray-700">
               <img src="https://placehold.co/400x250/bfdbfe/1e40af?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
-                <span class="text-sm text-gray-500">2025年4月15日</span>
-                <h4 class="font-medium text-lg my-1">A walk in the park for cherry blossoms</h4>
-                <a href="#" class="text-gray-500 hover:text-gray-800 text-sm font-medium">READ MORE &rarr;</a>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2025年4月15日</span>
+                <h4 class="font-medium text-lg my-1 text-gray-800 dark:text-gray-100">A walk in the park for cherry blossoms</h4>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white text-sm font-medium">READ MORE &rarr;</a>
               </div>
             </div>
           </div>
@@ -130,8 +160,8 @@
       </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-12">
-      <div class="container mx-auto px-6 text-center">
+    <footer class="bg-gray-800 dark:bg-black">
+      <div class="container mx-auto px-6 py-12 text-center">
         <p class="mb-4 text-gray-400">Follow Us</p>
         <div class="flex justify-center space-x-6 mb-8">
           <a href="https://instagram.com" target="_blank" class="text-2xl text-gray-300 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
@@ -141,59 +171,61 @@
       </div>
     </footer>
 
-    <!-- ===== NEW: Back to Top Button ===== -->
-    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-gray-800 text-white w-12 h-12 rounded-full shadow-lg hover:bg-gray-900 transition-colors flex items-center justify-center z-50">
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 w-12 h-12 rounded-full shadow-lg hover:bg-gray-900 dark:hover:bg-white transition-colors flex items-center justify-center z-50">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
       </svg>
     </button>
 
     <script>
-      // Hamburger menu toggle functionality
+      // Hamburger menu
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+      mobileMenuButton.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
       });
 
-      const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
-      mobileMenuLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
-
-      // --- NEW SCRIPT FOR SCROLL TO TOP ---
-
+      // Scroll to top
       const logoLink = document.getElementById("logo-link");
       const backToTopButton = document.getElementById("back-to-top");
-
-      // 1. Scroll to top when logo is clicked
       logoLink.addEventListener("click", (e) => {
-        e.preventDefault(); // Prevent default anchor behavior
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-
-      // 2. Show/hide the "back to top" button based on scroll position
       window.addEventListener("scroll", () => {
-        // Show button if user has scrolled down 200px
-        if (window.scrollY > 200) {
-          backToTopButton.classList.remove("hidden");
-        } else {
-          backToTopButton.classList.add("hidden");
-        }
+        if (window.scrollY > 200) backToTopButton.classList.remove("hidden");
+        else backToTopButton.classList.add("hidden");
+      });
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // 3. Scroll to top when the button is clicked
-      backToTopButton.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+      // --- THEME TOGGLE ---
+      const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+      const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+      const themeToggleButton = document.getElementById("theme-toggle");
+
+      const updateThemeIcons = () => {
+        if (document.documentElement.classList.contains("dark")) {
+          themeToggleLightIcon.classList.remove("hidden");
+          themeToggleDarkIcon.classList.add("hidden");
+        } else {
+          themeToggleLightIcon.classList.add("hidden");
+          themeToggleDarkIcon.classList.remove("hidden");
+        }
+      };
+
+      updateThemeIcons(); // Set initial icon state
+
+      themeToggleButton.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+
+        let newTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", newTheme);
+
+        updateThemeIcons();
       });
     </script>
   </body>
