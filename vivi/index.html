@@ -29,13 +29,17 @@
       /* Fix for anchor links being hidden by fixed header */
       html {
         scroll-padding-top: 120px; /* Adjust this value to your header's actual height */
+        scroll-behavior: smooth; /* Enable smooth scrolling for the whole page */
       }
     </style>
   </head>
   <body class="bg-gray-50">
     <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-medium tracking-wider text-gray-800">OUR DAYS</h1>
+        <!-- ===== UPDATED: Logo is now a link to the top ===== -->
+        <a href="#" id="logo-link">
+          <h1 class="text-xl font-medium tracking-wider text-gray-800">OUR DAYS</h1>
+        </a>
 
         <nav class="hidden md:flex items-center space-x-6">
           <a href="#gallery" class="text-gray-500 hover:text-gray-900 transition-colors">Gallery</a>
@@ -54,26 +58,18 @@
     </header>
 
     <main>
-      <!-- ===== HERO SECTION - UPDATED ===== -->
+      <!-- ===== HERO SECTION ===== -->
       <section class="relative h-[70vh] flex items-center justify-center text-white overflow-hidden">
-        <!-- The <picture> element allows for responsive images. -->
-        <!-- The browser will choose the first <source> that matches the media query. -->
         <picture class="absolute inset-0 w-full h-full -z-10">
-          <!-- Background: #343a40 -> Text: #3a4046 -->
           <source media="(min-width: 1280px)" srcset="https://placehold.co/1920x1080/343a40/3a4046?text=Large+Screen" />
-          <!-- Background: #6c757d -> Text: #727b83 -->
           <source media="(min-width: 768px)" srcset="https://placehold.co/1200x800/6c757d/727b83?text=Desktop" />
-          <!-- Background: #adb5bd -> Text: #b3bbc3 -->
           <img src="https://placehold.co/600x800/adb5bd/b3bbc3?text=Mobile" alt="A beautiful day with Vivi" class="w-full h-full object-cover" />
         </picture>
-
-        <!-- Hero text content, z-index ensures it's on top of the image -->
         <div class="text-center z-10">
           <h2 class="text-4xl md:text-5xl font-light tracking-widest text-shadow">LIFE WITH VIVI</h2>
           <p class="text-lg md:text-xl mt-2 text-shadow">A simple record of our days.</p>
         </div>
       </section>
-      <!-- ===== END OF HERO SECTION ===== -->
 
       <section id="gallery" class="py-16 md:py-24">
         <div class="container mx-auto px-6">
@@ -82,7 +78,6 @@
             <p class="mt-4 text-gray-600">Memories of our family and our dog, Vivi, living in Saitama. We also post videos on our Instagram.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- Updated border-radius from rounded-lg to rounded-md -->
             <div class="w-full aspect-square overflow-hidden rounded-md">
               <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/adb5bd/f8f9fa?text=Photo+1" alt="Gallery image 1" />
             </div>
@@ -96,7 +91,6 @@
               <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/e9ecef/343a40?text=Photo+4" alt="Gallery image 4" />
             </div>
           </div>
-
           <div class="text-center mt-12">
             <a href="#" class="inline-block bg-white text-gray-700 border border-gray-300 shadow-sm px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors"> View More </a>
           </div>
@@ -107,7 +101,6 @@
         <div class="container mx-auto px-6">
           <h3 class="text-3xl font-light text-center mb-12 text-gray-800 tracking-wider">Recent Posts</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Updated border-radius from rounded-lg to rounded-md -->
             <div class="bg-white overflow-hidden group rounded-md border">
               <img src="https://placehold.co/400x250/fecaca/991b1b?text=Blog+Image" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
               <div class="p-5">
@@ -148,20 +141,58 @@
       </div>
     </footer>
 
+    <!-- ===== NEW: Back to Top Button ===== -->
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-gray-800 text-white w-12 h-12 rounded-full shadow-lg hover:bg-gray-900 transition-colors flex items-center justify-center z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+
     <script>
       // Hamburger menu toggle functionality
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
 
       mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden"); // Toggle the 'hidden' class
+        mobileMenu.classList.toggle("hidden");
       });
 
-      // Close mobile menu when a link is clicked
       const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
       mobileMenuLinks.forEach((link) => {
         link.addEventListener("click", () => {
           mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // --- NEW SCRIPT FOR SCROLL TO TOP ---
+
+      const logoLink = document.getElementById("logo-link");
+      const backToTopButton = document.getElementById("back-to-top");
+
+      // 1. Scroll to top when logo is clicked
+      logoLink.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent default anchor behavior
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // 2. Show/hide the "back to top" button based on scroll position
+      window.addEventListener("scroll", () => {
+        // Show button if user has scrolled down 200px
+        if (window.scrollY > 200) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      });
+
+      // 3. Scroll to top when the button is clicked
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
       });
     </script>
