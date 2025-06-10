@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Days | Life with Vivi</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+      /* Apply Google Fonts */
+      body {
+        font-family: "Poppins", "Noto Sans JP", sans-serif; /* English font first */
+        background-color: #f8f9fa; /* Light gray */
+        color: #343a40; /* Dark gray */
+      }
+      .hero-bg {
+        /* Set main image here */
+        /* background-image: url("https://placehold.co/1200x800/6c757d/f8f9fa?text=Main+Photo"); */
+        background-size: cover;
+        background-position: center;
+        background-color: #6c757d;
+      }
+      /* Add a subtle shadow to text for readability */
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-medium tracking-wider text-gray-800">OUR DAYS</h1>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="#gallery" class="text-gray-500 hover:text-gray-900 transition-colors">Gallery</a>
+          <a href="#blog" class="text-gray-500 hover:text-gray-900 transition-colors">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-bg h-[70vh] flex items-center justify-center text-white">
+        <div class="text-center">
+          <h2 class="text-4xl md:text-5xl font-light tracking-widest text-shadow">LIFE WITH VIVI</h2>
+          <p class="text-lg md:text-xl mt-2 text-shadow">A simple record of our days.</p>
+        </div>
+      </section>
+
+      <section id="gallery" class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-light text-center text-gray-800 tracking-wider">Gallery</h3>
+            <p class="mt-4 text-gray-600">
+              Memories of our family and our dog, living in Saitama.<br class="hidden sm:block" />
+              We also post videos on our Instagram.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="w-full aspect-square overflow-hidden">
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/adb5bd/f8f9fa" alt="Gallery image 1" />
+            </div>
+            <div class="w-full aspect-square overflow-hidden">
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/ced4da/495057" alt="Gallery image 2" />
+            </div>
+            <div class="w-full aspect-square overflow-hidden">
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/dee2e6/495057" alt="Gallery image 3" />
+            </div>
+            <div class="w-full aspect-square overflow-hidden">
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/e9ecef/343a40" alt="Gallery image 4" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+          <h3 class="text-3xl font-light text-center mb-12 text-gray-800 tracking-wider">Recent Posts</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white overflow-hidden group">
+              <img src="https://placehold.co/400x250/fecaca/991b1b" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+              <div class="p-5">
+                <span class="text-sm text-gray-500">June 8, 2025</span>
+                <h4 class="font-medium text-lg my-1">First time at the dog park!</h4>
+                <a href="#" class="text-gray-500 hover:text-gray-800 text-sm font-medium">READ MORE &rarr;</a>
+              </div>
+            </div>
+            <div class="bg-white overflow-hidden group">
+              <img src="https://placehold.co/400x250/fed7aa/9a3412" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+              <div class="p-5">
+                <span class="text-sm text-gray-500">May 20, 2025</span>
+                <h4 class="font-medium text-lg my-1">Vivi's homemade birthday cake</h4>
+                <a href="#" class="text-gray-500 hover:text-gray-800 text-sm font-medium">READ MORE &rarr;</a>
+              </div>
+            </div>
+            <div class="bg-white overflow-hidden group">
+              <img src="https://placehold.co/400x250/bfdbfe/1e40af" alt="Blog post thumbnail" class="w-full h-48 object-cover group-hover:opacity-80 transition-opacity" />
+              <div class="p-5">
+                <span class="text-sm text-gray-500">April 15, 2025</span>
+                <h4 class="font-medium text-lg my-1">A walk in the park for cherry blossoms</h4>
+                <a href="#" class="text-gray-500 hover:text-gray-800 text-sm font-medium">READ MORE &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6 text-center">
+        <p class="mb-4 text-gray-400">Follow Us</p>
+        <div class="flex justify-center space-x-6 mb-8">
+          <a href="https://instagram.com" target="_blank" class="text-2xl text-gray-300 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" class="text-2xl text-gray-300 hover:text-white transition-colors"><i class="fab fa-facebook-square"></i></a>
+        </div>
+        <p class="text-gray-500 text-sm">&copy; 2025 Our Days. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
