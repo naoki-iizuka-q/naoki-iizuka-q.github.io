@@ -16,16 +16,16 @@
     <style>
       /* Apply Google Fonts */
       body {
-        font-family: "Poppins", "Noto Sans JP", sans-serif; /* English font first */
+        font-family: "Poppins", "Noto Sans JP", sans-serif;
         background-color: #f8f9fa; /* Light gray */
         color: #343a40; /* Dark gray */
       }
       .hero-bg {
         /* Set main image here */
-        /* background-image: url("https://placehold.co/1200x800/6c757d/f8f9fa?text=Main+Photo"); */
+        /* background-image: url("https://placehold.co/1200x800/6c757d/f8f9fa"); */
+        background-color: #6c757d;
         background-size: cover;
         background-position: center;
-        background-color: #6c757d;
       }
       /* Add a subtle shadow to text for readability */
       .text-shadow {
@@ -37,11 +37,21 @@
     <header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
         <h1 class="text-xl font-medium tracking-wider text-gray-800">OUR DAYS</h1>
+
         <nav class="hidden md:flex items-center space-x-6">
           <a href="#gallery" class="text-gray-500 hover:text-gray-900 transition-colors">Gallery</a>
           <a href="#blog" class="text-gray-500 hover:text-gray-900 transition-colors">Blog</a>
         </nav>
+
+        <button id="mobile-menu-button" class="md:hidden text-gray-500 hover:text-gray-900 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
       </div>
+
+      <nav id="mobile-menu" class="hidden md:hidden bg-white py-2 border-t border-gray-200">
+        <a href="#gallery" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 transition-colors">Gallery</a>
+        <a href="#blog" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 transition-colors">Blog</a>
+      </nav>
     </header>
 
     <main>
@@ -56,24 +66,25 @@
         <div class="container mx-auto px-6">
           <div class="text-center mb-12">
             <h3 class="text-3xl font-light text-center text-gray-800 tracking-wider">Gallery</h3>
-            <p class="mt-4 text-gray-600">
-              Memories of our family and our dog, living in Saitama.<br class="hidden sm:block" />
-              We also post videos on our Instagram.
-            </p>
+            <p class="mt-4 text-gray-600">Memories of our family and our dog, living in Saitama.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div class="w-full aspect-square overflow-hidden">
-              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/adb5bd/f8f9fa" alt="Gallery image 1" />
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x700/adb5bd/f8f9fa" alt="Gallery image 1" />
             </div>
             <div class="w-full aspect-square overflow-hidden">
               <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/ced4da/495057" alt="Gallery image 2" />
             </div>
             <div class="w-full aspect-square overflow-hidden">
-              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/dee2e6/495057" alt="Gallery image 3" />
+              <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x800/dee2e6/495057" alt="Gallery image 3" />
             </div>
             <div class="w-full aspect-square overflow-hidden">
               <img class="w-full h-full object-cover hover:opacity-80 transition-opacity" src="https://placehold.co/500x500/e9ecef/343a40" alt="Gallery image 4" />
             </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <a href="#" class="inline-block bg-white text-gray-700 border border-gray-300 shadow-sm px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors"> View More </a>
           </div>
         </div>
       </section>
@@ -121,5 +132,15 @@
         <p class="text-gray-500 text-sm">&copy; 2025 Our Days. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <script>
+      // Hamburger menu toggle functionality
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden"); // Toggle the 'hidden' class
+      });
+    </script>
   </body>
 </html>
